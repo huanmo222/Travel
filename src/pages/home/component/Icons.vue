@@ -8,7 +8,7 @@
           :key="item.id"
         >
           <div class="icon-img">
-            <img class="icon-img-content" :src="item.imgUrl" alt="">
+            <img class="icon-img-content" :src="item.imgUrl" />
           </div>
           <p class="icon-desc">{{item.desc}}</p>
         </div>
@@ -24,7 +24,7 @@ export default {
       iconsList: [{
         id: '001',
         imgUrl: 'https://mall.s.maizuo.com/2098a3fbbb398b2650810475afa2fc23.jpg?x-oss-process=image/quality,Q_70',
-        desc: '9.9拼团9.9拼团9.9拼团9.9拼团'
+        desc: '9.9拼团'
       }, {
         id: '002',
         imgUrl: 'https://mall.s.maizuo.com/21760cfcf42efbdb7dd09159921002fb.jpg?x-oss-process=image/quality,Q_70',
@@ -83,33 +83,39 @@ export default {
 @import '~styles/mixins.styl';
   .icons >>> .swiper-container
     height: 0
-    padding-bottom: 50%
-  .icon
-    position: relative
-    overflow: hidden
-    float: left
-    width: 25%
-    hieght: 0
-    padding-bottom: 25%
-    .icon-img
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: .44rem
-      .icon-img-content
-        display:block
-        margin: 0 auto
-        height: 100%
-    .icon-desc
-      position: absolute
-      left: 0
-      right: 0
-      bottom: 0
-      height: 0.44rem
-      line-height: 0.44rem
-      text-align: center
-      color: $darkTextColor
-      ellipsis()
+    padding-bottom: 40%
+  .icons
+    margin-top: .1rem
+    .icon
+      position: relative
+      overflow: hidden
+      float: left
+      width: 25%
+      hieght: 0
+      padding-bottom: 20%
+      .icon-img
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: .44rem
+        .icon-img-content
+          display:block
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translateY(-50%) translateX(-50%)
+          width: .56rem
+          height: .56rem
+      .icon-desc
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        height: 0.44rem
+        line-height: 0.44rem
+        text-align: center
+        color: $darkTextColor
+        ellipsis()
 
 </style>
