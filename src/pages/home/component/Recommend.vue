@@ -2,7 +2,7 @@
   <div>
     <div class="recommend-title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl" alt="">
         <div class="item-info">
           <p class="item-title">{{item.title}}</p>
@@ -17,26 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '001',
-          imgUrl: 'https://mall.s.maizuo.com/f3fb14bcc57fa2c18b9c4b72d49c4f4f.png?x-oss-process=image/quality,Q_70',
-          title: '标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题',
-          desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
-        }, {
-          id: '002',
-          imgUrl: 'https://mall.s.maizuo.com/f3fb14bcc57fa2c18b9c4b72d49c4f4f.png?x-oss-process=image/quality,Q_70',
-          title: '标题标题标题',
-          desc: '内容内容内容'
-        }, {
-          id: '003',
-          imgUrl: 'https://mall.s.maizuo.com/f3fb14bcc57fa2c18b9c4b72d49c4f4f.png?x-oss-process=image/quality,Q_70',
-          title: '标题标题标题',
-          desc: '内容内容内容'
-        }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

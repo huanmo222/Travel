@@ -4,7 +4,7 @@
     <ul>
       <li
         class="item border-bottom"
-        v-for="item of recommendList"
+        v-for="item of list"
         :key="item.id"
       >
         <div class="item-img-wrapper">
@@ -22,26 +22,8 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [
-        {
-          id: '001',
-          imgUrl: 'https://mall.s.maizuo.com/f3fb14bcc57fa2c18b9c4b72d49c4f4f.png?x-oss-process=image/quality,Q_70',
-          title: '标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题',
-          desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容'
-        }, {
-          id: '002',
-          imgUrl: 'https://mall.s.maizuo.com/f3fb14bcc57fa2c18b9c4b72d49c4f4f.png?x-oss-process=image/quality,Q_70',
-          title: '标题标题标题',
-          desc: '内容内容内容'
-        }, {
-          id: '003',
-          imgUrl: 'https://mall.s.maizuo.com/f3fb14bcc57fa2c18b9c4b72d49c4f4f.png?x-oss-process=image/quality,Q_70',
-          title: '标题标题标题',
-          desc: '内容内容内容'
-        }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -49,14 +31,13 @@ export default {
 <style lang="stylus" scoped>
   @import '~styles/mixins.styl'
   .recommend-title
-    margin-top .2rem
     line-height: .8rem
     background: #eee
     text-indent: .2rem
   .item-img-wrapper
     overflow hidden
     height 0
-    padding-bottom 33.9%
+    padding-bottom 37.09%
   .item-img
     width 100%
   .item-info
