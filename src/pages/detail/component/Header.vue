@@ -12,10 +12,8 @@
       <router-link tag="div" to="/">
         <span class="iconfont header-fixed-back">&#xe624;</span>
       </router-link>
-
       景点详情
     </div>
-    <div class="content"></div>
   </div>
 </template>
 
@@ -74,6 +72,7 @@ export default {
       color #fff
       font-size .4rem
   .header-fixed
+    z-index 2
     position fixed
     top 0
     left 0
@@ -93,6 +92,4 @@ export default {
       text-align center
       font-size .4rem
       color #fff
-  .content
-    height 50rem
 </style>
