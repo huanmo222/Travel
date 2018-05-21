@@ -1,8 +1,13 @@
 <template>
   <div>
-    <detail-banner></detail-banner>
+    <detail-banner
+      :sightName="sightName"
+      :bannerImg="bannerImg"
+      :gallaryImgs="gallaryImgs"
+    ></detail-banner>
     <detail-header></detail-header>
-    <detail-list :list="list"></detail-list>
+    <detail-list :list="categoryList"></detail-list>
+    <div class="contents"></div>
   </div>
 </template>
 
@@ -19,30 +24,40 @@ export default {
   },
   data () {
     return {
-      list: [{
-        title: '成人票',
-        children: [{
-          title: '成人三馆联票1',
-          children: [{
-            title: '成人三馆联票1-1'
-          }, {
-            title: '成人三馆联票1-2'
-          }]
-        }, {
-          title: '成人三馆联票2'
-        }]
-      }, {
-        title: '学生票'
-      }, {
-        title: '儿童票'
-      }, {
-        title: '特惠票'
-      }]
+      sightName: '',
+      gallaryImgs: [],
+      categoryList: [],
+      bannerImg: ''
+    }
+  },
+  mounted () {
+    this.getDetailInfo()
+  },
+  methods: {
+    getDetailInfo () {
+      this.$axios.get('/api/detail.json', {
+        params: {
+          id: this.$route.params.id
+        }
+      }).then(this.handleGetDataSucc)
+    },
+    handleGetDataSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        console.log(data)
+        this.sightName = data.sightName
+        this.gallaryImgs = data.gallaryImgs
+        this.categoryList = data.categoryList
+        this.bannerImg = data.bannerImg
+      }
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+.contents
+  height 50rem
 
 </style>

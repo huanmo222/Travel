@@ -1,14 +1,17 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="http://f.hiphotos.baidu.com/zhidao/pic/item/72f082025aafa40f6e86370bab64034f79f019a7.jpg">
+      <img class="banner-img" :src="bannerImg">
       <div class="banner-info">
-        <div class="banner-title">大连圣亚海洋世界(AAA景区)</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe692;&nbsp;</span>39</div>
+        <div class="banner-title">{{sightName}}</div>
+        <div class="banner-number">
+          <span class="iconfont banner-icon">&#xe692;&nbsp;</span>
+          {{gallaryImgs.length}}
+        </div>
       </div>
     </div>
     <common-gallary
-      :imgs="imgs"
+      :imgs="gallaryImgs"
       v-show="showGallary"
       @closeGallray="handleGallrayClose"
     ></common-gallary>
@@ -20,9 +23,13 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data () {
     return {
-      imgs: ['http://f.hiphotos.baidu.com/zhidao/pic/item/72f082025aafa40f6e86370bab64034f79f019a7.jpg', 'http://f.hiphotos.baidu.com/zhidao/pic/item/72f082025aafa40f6e86370bab64034f79f019a7.jpg'],
       showGallary: false
     }
   },
